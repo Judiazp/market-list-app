@@ -1,0 +1,8 @@
+.content-market-list-app {
+    background-color: #F5F6FC;
+}
+
+.content-form-market-list {
+    height: calc(100vh - 140px);
+    width: 100%;
+}

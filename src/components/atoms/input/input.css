@@ -1,0 +1,12 @@
+input {
+    border: .5px solid grey;
+    border-radius: 5px;
+    outline: none;
+    padding: 10px;
+    margin-right: 10px;
+    transition: .35s;
+}
+
+input:hover {
+    transform: scale(1.025);
+}

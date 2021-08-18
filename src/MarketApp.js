@@ -1,10 +1,10 @@
 import './App.css';
-import { MarketList } from './components/pages/marketList';
+import { Markets } from './components/pages/markets';
 
 function MarketApp() {
   return (
     <div className="App">
-      <MarketList />
+      <Markets />
     </div>
   );
 }

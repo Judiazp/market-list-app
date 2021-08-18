@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Footer } from '../../molecules/footer';
 import { Header } from '../../molecules/header';
-import { AddList } from '../../organisms/form';
+import { AddList } from '../../organisms/forms/createMarketList';
 import { Grid } from '../../organisms/grid';
 import './markets.css'
 
@@ -9,19 +9,16 @@ export const Markets = () => {
 
     const [marketList, setMarketList] = useState([])
 
-    const addList = ({title}) => {
-
+    const addList = (object) => {
         const newList = {
-            title: title,
-            id: new Date().getMilliseconds()
+            title: object.title,
+            id: new Date().getTime()
         }
         setMarketList([
             newList,
             ...marketList
         ])
     }
-
-    console.log(marketList);
 
     return (
         <div className="content-market-list-app">

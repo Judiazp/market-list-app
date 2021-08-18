@@ -1,4 +1,4 @@
-form {
+.form-add-list {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -9,4 +9,9 @@ form {
     box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.4);
     max-height: 300px;
     margin-top: 2em;
+}
+
+.form-add-product {
+    display: flex;
+    justify-content: center;
 }

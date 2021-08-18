@@ -1,8 +1,8 @@
 import React from 'react'
-import { useForm } from '../../../hooks/useForm'
-import { Button } from '../../atoms/button'
-import { Input } from '../../atoms/input/input'
-import './form.css'
+import { useForm } from '../../../../hooks/useForm'
+import { Button } from '../../../atoms/button'
+import { Input } from '../../../atoms/input/input'
+import '../form.css'
 
 export const AddList = ({ addList }) => {
 
@@ -16,7 +16,7 @@ export const AddList = ({ addList }) => {
     }
 
     return (
-        <form onSubmit={ handleSubmitForm }>
+        <form className="form-add-list" onSubmit={ handleSubmitForm }>
             <Input 
                 name="title" 
                 placeholder="Lista del asado" 

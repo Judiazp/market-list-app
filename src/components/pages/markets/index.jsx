@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Footer } from '../../molecules/footer';
 import { Header } from '../../molecules/header';
 import { AddList } from '../../organisms/forms/createMarketList';
@@ -7,11 +7,19 @@ import './markets.css'
 
 export const Markets = () => {
 
-    const [marketList, setMarketList] = useState([])
+    const initialMarketListState = JSON.parse(localStorage.getItem('market-list')) || []
+
+    const [marketList, setMarketList] = useState(initialMarketListState)
+    // const [products, setProducts] = useState([])
+
+    useEffect(() => {
+        localStorage.setItem(`market-list`, JSON.stringify(marketList))
+    }, [marketList])
 
     const addList = (object) => {
         const newList = {
             title: object.title,
+            list: [],
             id: new Date().getTime()
         }
         setMarketList([
@@ -26,7 +34,7 @@ export const Markets = () => {
             <div className="content-form-market-list">
                 <AddList addList={ addList } />
                 <div className="content-grid-market-list">
-                    <Grid marketList={ marketList } />
+                    <Grid marketList={ marketList } setMarketList={ setMarketList } />
                 </div>
             </div>
             <Footer />

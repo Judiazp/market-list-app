@@ -17,8 +17,6 @@ export const AddProductList = ({ addProduct }) => {
         addProduct(productForm)
     } 
 
-    console.log(productForm);
-
     return (
         <form 
             className="form-add-product"

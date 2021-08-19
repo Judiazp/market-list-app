@@ -3,12 +3,12 @@ import { Button } from '../../atoms/button'
 import { ProductList } from '../../organisms/productList'
 import './card.css'
 
-export const Card = ({title, id}) => {
+export const Card = ({title, id , setMarketList, products}) => {
 
     const [openList, setOpenList] = useState(false)
 
     const handleClickViewList = () => {
-        setOpenList(!openList)
+        setOpenList( !openList.open )
     }
 
     return (
@@ -20,7 +20,17 @@ export const Card = ({title, id}) => {
                 <Button text="Ver lista" click={ handleClickViewList } />
                 <Button text="Eliminar lista" color="rgb(229,61,47)" />
             </div>
-            { openList && <ProductList id={id} /> }
+            { openList && 
+                (
+                    <ProductList 
+                        products={ products }
+                        setMarketList={ setMarketList } 
+                        id={id} 
+                        setOpenList={ setOpenList } 
+                        openList={ openList } 
+                    />
+                ) 
+            }
         </div>
     )
 }

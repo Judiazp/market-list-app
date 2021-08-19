@@ -17,9 +17,16 @@
     border-radius: 7px;
     background-color: #fff;
     box-shadow: 1px 1px 1px 1px rgba(0,0,0,.4);
-    max-height: 300px;
+    max-height: 60vh;
     position: relative;
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%);
+}
+
+.content-product {
+    box-shadow: 1px 1px 1px 1px rgba(0,0,0,.4);
+
+    margin-top: 2em;
+    overflow-y: scroll;
 }

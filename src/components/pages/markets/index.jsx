@@ -1,30 +1,24 @@
 import React, { useEffect, useState } from 'react';
 import { Footer } from '../../molecules/footer';
 import { Header } from '../../molecules/header';
-import { AddList } from '../../organisms/forms/createMarketList';
 import { Grid } from '../../organisms/grid';
+import { AddProductList } from '../../organisms/forms/addProductList';
 import './markets.css'
 
 export const Markets = () => {
 
     const initialMarketListState = JSON.parse(localStorage.getItem('market-list')) || []
 
-    const [marketList, setMarketList] = useState(initialMarketListState)
-    // const [products, setProducts] = useState([])
+    const [products, setProducts] = useState(initialMarketListState)
 
     useEffect(() => {
-        localStorage.setItem(`market-list`, JSON.stringify(marketList))
-    }, [marketList])
+        localStorage.setItem(`market-list`, JSON.stringify(products))
+    }, [products])
 
-    const addList = (object) => {
-        const newList = {
-            title: object.title,
-            list: [],
-            id: new Date().getTime()
-        }
-        setMarketList([
-            newList,
-            ...marketList
+    const addProduct = (object) => {
+        setProducts([
+            object,
+            ...products
         ])
     }
 
@@ -32,9 +26,13 @@ export const Markets = () => {
         <div className="content-market-list-app">
             <Header />
             <div className="content-form-market-list">
-                <AddList addList={ addList } />
                 <div className="content-grid-market-list">
-                    <Grid marketList={ marketList } setMarketList={ setMarketList } />
+                    <h1>Agrega productos</h1>
+                    <AddProductList addProduct={ addProduct } />
+                    <div className="content-grid">
+                        <Grid products={ products } />
+                    </div>
+                    <h3>Total de mercado: {  }  </h3>
                 </div>
             </div>
             <Footer />

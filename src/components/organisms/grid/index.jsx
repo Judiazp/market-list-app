@@ -1,23 +1,15 @@
-import React from 'react'
-import { Card } from '../../molecules/card';
+import React from 'react';
+import { Product } from '../../molecules/product';
 import './grid.css'
 
-export const Grid = ({marketList, setMarketList}) => {
+export const Grid = ({products}) => {
 
     return (
-        <div className="grid">
-            { 
-                marketList.map(item => {
-                    return (
-                        <Card 
-                            key={item.id} 
-                            title={ item.title } 
-                            id={item.id} 
-                            products={ item.list }
-                            setMarketList={ setMarketList }
-                        />
-                    )
-                }) 
+        <div className="content-product">
+            {
+                products.map(item => {
+                    return <Product products={ item } />
+                })
             }
         </div>
     )

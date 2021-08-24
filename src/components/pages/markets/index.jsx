@@ -18,7 +18,7 @@ export const Markets = () => {
             product: object.product,
             quantity: object.quantity,
             price: object.price,
-            id: new Date().getTime()
+            id: products.length
         } 
 
         setProducts([
@@ -51,12 +51,18 @@ export const Markets = () => {
             <Header />
             <div className="content-form-market-list">
                 <div className="content-grid-market-list">
-                    <h1>Agrega productos</h1>
+                    <h2>Total de mercado: { calculeMarkets() }  </h2>
                     <AddProductList addProduct={ addProduct } />
+                    <div className="table-information">
+                        <p>Producto</p>
+                        <p>Cantidad</p>
+                        <p>Precio</p>
+                        <p>Costo total</p>
+                        <p>Editar</p>
+                    </div>
                     <div className="content-grid">
                         <Grid products={ products } />
                     </div>
-                    <h3>Total de mercado: { calculeMarkets() }  </h3>
                 </div>
             </div>
             <Footer />

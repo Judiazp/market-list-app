@@ -1,7 +1,15 @@
 .form-add-product {
     display: flex;
     justify-content: center;
-    margin-top: 2em;
-    margin-bottom: 1em;
-    padding-bottom: 2em;
+    flex-wrap: wrap;
+    margin: 2em;
+    padding-bottom: .4em;
+}
+
+
+@media (max-width: 600px) {
+    .form-add-product {
+        margin: 1em;
+    }
+    
 }

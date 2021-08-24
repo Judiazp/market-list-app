@@ -12,7 +12,7 @@
 }
 
 .content-grid-market-list {
-    width: 60%;
+    width: 75%;
     background-color: #FFFFFF;
     box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.4);
     padding: 1.5em;
@@ -20,7 +20,24 @@
     text-align: center;
 }
 
+.table-information {
+    display: flex;
+    justify-content: space-around;
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
 .content-grid {
-    max-height: 50vh;
+    max-height: 40vh;
     overflow-y: scroll;
+}
+
+@media (max-width: 600px) {
+    .content-grid-market-list {
+        width: 85%;
+
+    }
+    .content-grid {
+        max-height: 35vh;
+
+    }
 }

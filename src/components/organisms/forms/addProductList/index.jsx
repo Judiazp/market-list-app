@@ -6,7 +6,7 @@ import { useForm } from '../../../../hooks/useForm';
 
 export const AddProductList = ({ addProduct }) => {
 
-    const [productForm, handleInputChange] = useForm({
+    const [productForm, handleInputChange, clearInputValue] = useForm({
         product: '',
         quantity: '',
         price: ''
@@ -15,7 +15,8 @@ export const AddProductList = ({ addProduct }) => {
     const handleSubmit = (e) => {
         e.preventDefault()
         addProduct(productForm)
-    } 
+        clearInputValue()
+    }
 
     return (
         <form 
@@ -25,18 +26,22 @@ export const AddProductList = ({ addProduct }) => {
             <Input 
                 name="product"
                 placeholder="Producto"
+                value={ productForm.product }
                 onChange={ handleInputChange }
             />
             <Input 
                 name="quantity"
                 placeholder="Cantidad"
                 type="number"
+                value={ productForm.quantity }
+
                 onChange={ handleInputChange }
             />
             <Input 
                 name="price"
                 placeholder="Precio"
                 type="number"
+                value={ productForm.price }
                 onChange={ handleInputChange }
             />
             <Button text="Añadir" type="submit" />

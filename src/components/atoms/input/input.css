@@ -3,10 +3,17 @@ input {
     border-radius: 5px;
     outline: none;
     padding: 10px;
-    margin-right: 10px;
+    margin: 1em;
     transition: .2s;
 }
 
 input:hover {
     transform: scale(1.025);
+}
+
+@media (max-width: 600px) {
+    input {
+        margin: 0.5em;
+        width: 20%;
+    }
 }

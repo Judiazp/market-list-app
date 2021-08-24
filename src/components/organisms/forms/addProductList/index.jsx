@@ -42,7 +42,6 @@ export const AddProductList = ({ addProduct }) => {
                 placeholder="Precio"
                 type="number"
                 value={ productForm.price }
-
                 onChange={ handleInputChange }
             />
             <Button text="Añadir" type="submit" />

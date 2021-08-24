@@ -11,16 +11,40 @@ export const Markets = () => {
 
     const [products, setProducts] = useState(initialMarketListState)
 
-    useEffect(() => {
-        localStorage.setItem(`market-list`, JSON.stringify(products))
-    }, [products])
-
+    
     const addProduct = (object) => {
+
+        const newProduct = {
+            product: object.product,
+            quantity: object.quantity,
+            price: object.price,
+            id: new Date().getTime()
+        } 
+
         setProducts([
-            object,
+            newProduct,
             ...products
         ])
     }
+            
+    const calculeMarkets = () => {
+        let priceMarkets = 0
+        let priceProducts = []
+
+        products.forEach(element => {
+            priceProducts.push(element.price * element.quantity)
+        })
+
+        priceProducts.forEach(element =>{
+            return priceMarkets += element
+        })
+
+        return priceMarkets
+    }
+    
+    useEffect(() => {
+        localStorage.setItem(`market-list`, JSON.stringify(products))
+    }, [products])
 
     return (
         <div className="content-market-list-app">
@@ -32,7 +56,7 @@ export const Markets = () => {
                     <div className="content-grid">
                         <Grid products={ products } />
                     </div>
-                    <h3>Total de mercado: {  }  </h3>
+                    <h3>Total de mercado: { calculeMarkets() }  </h3>
                 </div>
             </div>
             <Footer />

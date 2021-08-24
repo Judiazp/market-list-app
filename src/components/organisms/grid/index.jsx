@@ -8,7 +8,7 @@ export const Grid = ({products}) => {
         <div className="content-product">
             {
                 products.map(item => {
-                    return <Product products={ item } />
+                    return <Product key={ item.id } products={ item } />
                 })
             }
         </div>

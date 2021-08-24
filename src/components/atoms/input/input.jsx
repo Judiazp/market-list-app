@@ -1,7 +1,7 @@
 import React from 'react'
 import './input.css'
 
-export const Input = ({ placeholder, type='text', name, onChange, required }) => {
+export const Input = ({ placeholder, type='text', name, onChange, required, value }) => {
     return (
         <input 
             type={type} 
@@ -9,6 +9,7 @@ export const Input = ({ placeholder, type='text', name, onChange, required }) =>
             onChange={ onChange }
             name={ name } 
             required={ required }
+            value={ value }
         />
     )
 }

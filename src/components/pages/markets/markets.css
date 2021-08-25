@@ -40,4 +40,8 @@
         max-height: 35vh;
 
     }
+
+    .table-information {
+        display: none;
+    }
 }

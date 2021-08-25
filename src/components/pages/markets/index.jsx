@@ -38,6 +38,11 @@ export const Markets = () => {
         setProducts( newProduct )
     }
 
+    const deleteProduct = (id) => {
+        const productDelete = products.filter(element => element.id !== id)
+        setProducts(productDelete)
+    }
+
             
     const calculeMarkets = () => {
         let priceMarkets = 0
@@ -55,7 +60,7 @@ export const Markets = () => {
     }
     
     useEffect(() => {
-        localStorage.setItem(`market-list`, JSON.stringify(products))
+        localStorage.setItem('market-list', JSON.stringify(products))
     }, [products])
 
     return (
@@ -73,7 +78,7 @@ export const Markets = () => {
                         <p>Editar</p>
                     </div>
                     <div className="content-grid">
-                        <Grid products={ products } update={ update } />
+                        <Grid products={ products } update={ update } deleteProduct={ deleteProduct }/>
                     </div>
                 </div>
             </div>

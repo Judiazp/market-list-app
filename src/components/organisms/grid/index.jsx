@@ -2,7 +2,7 @@ import React from 'react';
 import { Product } from '../../molecules/product';
 import './grid.css'
 
-export const Grid = ({products, update }) => {
+export const Grid = ({products, update, deleteProduct }) => {
 
     return (
         <div className="content-product">
@@ -12,6 +12,7 @@ export const Grid = ({products, update }) => {
                                 key={ item.id } 
                                 product={ item }
                                 update={ update }
+                                deleteProduct={ deleteProduct }
                             />
                 })
             }

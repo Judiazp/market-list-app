@@ -6,16 +6,15 @@ import { faEdit } from '@fortawesome/free-solid-svg-icons';
 import { faMinusSquare } from '@fortawesome/free-solid-svg-icons';
 import './product.css'
 
-export const Product = ({ product, update }) => {
+export const Product = ({ product, update, deleteProduct }) => {
     
     const [edit, setEdit] = useState(false)
 
     const color = { 
         background: (product.id % 2 === 0) ? 'rgba(0, 0, 0, 0.1)' : 'rgba(0, 0, 0, 0.2)'
     }
-
     const handleClickDelete = () => {
-        console.log('eliminado');
+        deleteProduct(product.id)
     }
 
     const handleClickEdit = () => {

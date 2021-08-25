@@ -11,7 +11,6 @@ export const Markets = () => {
 
     const [products, setProducts] = useState(initialMarketListState)
 
-    
     const addProduct = (object) => {
 
         const newProduct = {
@@ -26,6 +25,19 @@ export const Markets = () => {
             ...products
         ])
     }
+
+    const update = ( object, id) => {
+        const newProduct = products.map(element => {
+            if (element.id === id) {
+                element.product = object.product
+                element.quantity = object.quantity
+                element.price = object.price    
+            }
+            return element;
+        })
+        setProducts( newProduct )
+    }
+
             
     const calculeMarkets = () => {
         let priceMarkets = 0
@@ -61,7 +73,7 @@ export const Markets = () => {
                         <p>Editar</p>
                     </div>
                     <div className="content-grid">
-                        <Grid products={ products } />
+                        <Grid products={ products } update={ update } />
                     </div>
                 </div>
             </div>

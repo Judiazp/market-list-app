@@ -1,7 +1,15 @@
 import React from 'react'
 import './input.css'
 
-export const Input = ({ placeholder, type='text', name, onChange, required, value }) => {
+export const Input = ({ 
+        placeholder, 
+        type='text', 
+        name, 
+        onChange, 
+        required, 
+        value,
+        className
+    }) => {
     return (
         <input 
             type={type} 
@@ -10,6 +18,7 @@ export const Input = ({ placeholder, type='text', name, onChange, required, valu
             name={ name } 
             required={ required }
             value={ value }
+            className={ className }
         />
     )
 }

@@ -8,23 +8,26 @@
 
 .form-edit-product {
     display: flex;
-    flex-direction: column;
-    width: 20%;
-    padding: 2em;
-    border-radius: 7px;
-    background-color: #FFFFFF;
+    flex-wrap: wrap;
+    align-items: center;
+    width: 100%;
+    justify-content: space-around;
+    background: rgba(0, 0, 0, 0.1);
     box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.4);
     max-height: 300px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
 }
-
 
 @media (max-width: 600px) {
     .form-add-product {
         margin: 1em;
+    }
+    .form-edit-product {
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+
+    .input {
+        width: 60%;
     }
     
 }

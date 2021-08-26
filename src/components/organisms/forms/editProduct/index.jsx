@@ -26,13 +26,14 @@ export const EditProduct = ({update, product, setEdit}) => {
                 placeholder="Producto"
                 value={ editForm.product }
                 onChange={ handleInputChange }
+                className="input"
             />
             <Input 
                 name="quantity"
                 placeholder="Cantidad"
                 type="number"
                 value={ editForm.quantity }
-
+                className="input"
                 onChange={ handleInputChange }
             />
             <Input 
@@ -41,9 +42,12 @@ export const EditProduct = ({update, product, setEdit}) => {
                 type="number"
                 value={ editForm.price }
                 onChange={ handleInputChange }
+                className="input"
             />
-            <Button text="Añadir" type="submit" />
-            <Button text="Cancelar" click={ () => setEdit(false) } />
+            <div className="content-button-edit">
+                <Button text="Confirmar" type="submit" />
+                <Button text="Cancelar" color="brown" click={ () => setEdit(false) } />
+            </div>
         </form>
     )
 }

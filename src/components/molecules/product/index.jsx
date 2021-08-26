@@ -21,48 +21,55 @@ export const Product = ({ product, update, deleteProduct }) => {
         setEdit(!edit)
     }
 
-    return (
-        <div className="product" style={color}>
-            <p>
-                <span>Producto:</span>
-                {product.product}
-            </p>
-            <p>
-                <span>Cantidad:</span>
-                {product.quantity}
-            </p>
-            <p>
-                <span>Precio:</span>
-                {product.price}
-            </p>
-            <p> 
-                <span>Precio total:</span>
-                { product.quantity * product.price }
-            </p>
-            <div className="content-buttons">
-                <div 
-                    className="buttons edit" 
-                    title="Editar" 
-                    onClick={ handleClickEdit }
-                >
-                    <FontAwesomeIcon icon={faEdit} />
-                    <span>
-                        Editar
-                    </span>
+    if (edit) {
+        return( 
+            <EditProduct product={ product } update={update} setEdit={setEdit} /> 
+        )
+    } else {
+        return (
+            <div className="product" style={color}>
+                <p>
+                    <span>Producto:</span>
+                    {product.product}
+                </p>
+                <p>
+                    <span>Cantidad:</span>
+                    {product.quantity}
+                </p>
+                <p>
+                    <span>Precio:</span>
+                    {product.price}
+                </p>
+                <p> 
+                    <span>Precio total:</span>
+                    { product.quantity * product.price }
+                </p>
+                <div className="content-buttons">
+                    <div 
+                        className="buttons edit" 
+                        title="Editar" 
+                        onClick={ handleClickEdit }
+                    >
+                        <FontAwesomeIcon icon={faEdit} />
+                        <span>
+                            Editar
+                        </span>
+                    </div>
+                    <div 
+                        className="delete buttons" 
+                        title="Eliminar" 
+                        name="update"
+                        onClick={ handleClickDelete }
+                    >
+                        <FontAwesomeIcon icon={faMinusSquare} />
+                        <span>
+                            Eliminar
+                        </span>
+                    </div>
                 </div>
-                <div 
-                    className="delete buttons" 
-                    title="Eliminar" 
-                    name="update"
-                    onClick={ handleClickDelete }
-                >
-                    <FontAwesomeIcon icon={faMinusSquare} />
-                    <span>
-                        Eliminar
-                    </span>
-                </div>
-                { edit && <EditProduct product={ product } update={update} setEdit={setEdit} /> }
             </div>
-        </div>
-    ) 
+        ) 
+    }
+    
+    
 }
